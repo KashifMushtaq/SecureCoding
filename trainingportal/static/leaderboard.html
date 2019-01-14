@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <p>Below is the list of teams that are participating in the challenge and the members that attained a particular level.</p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Teams vs. Levels</th>
+            <th ng-repeat="level in challengeDefinitions">{{level.name}}</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="team in teamList">
+                <td>{{team.name}}</td>
+                <td ng-repeat="level in team.challengeDefinitions">
+                    <span class="badge" ng-if="level.members.length>0">{{level.members.length}} </span>
+                    <div style="height: 70px; overflow-y: auto">
+                        <ol class="small">
+                            <li ng-repeat="user in level.members">{{user.givenName}} {{user.familyName}}</li>
+                        </ol>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+</div>
